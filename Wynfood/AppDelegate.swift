@@ -18,12 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let searchViewController = SearchViewController()
     let locationService  = LocationService()
     let restaurantService = RestaurantService()
+    let authService = AuthenticationService()
     let networkingService = NetworkingService()
+    let userService = UserService()
   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+         authService.logOut()
+        
         
         let navigationController = UINavigationController(rootViewController: restaurantsCollectionVC)
         navigationController.navigationBar.barTintColor = UIColor.white
@@ -47,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
+        
+        authService.logOut()
         
         restaurantService.deleteCache()
     }

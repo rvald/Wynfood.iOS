@@ -227,8 +227,15 @@ class RegisterView: UIView, UITextFieldDelegate {
                     
                 } else {
                     
+                    guard let email = self.authService.getUserEmail() else { return }
+                    
+                    let user = User(email: email, userName: self.userNameField.text!, created: nil)
+                    
                     let defaults = UserDefaults.standard
-                    defaults.set(self.userNameField.text!, forKey: "UserName")
+                    defaults.set(user.email, forKey: "UserEmail")
+                    defaults.set(user.userName, forKey: "UserName")
+                    
+                    self.networkingService.postUser(user: user)
                     
                     NotificationCenter.default.post(name: self.dismissViewNotification, object: nil)
                     

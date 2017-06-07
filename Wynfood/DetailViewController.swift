@@ -17,8 +17,8 @@ class DetailViewController: UIViewController {
     var reviewsView: ReviewsView!
     var messageView: MessageView!
     
-    var resturantService: RestaurantService! 
-    var locationService: LocationService!
+    var resturantService = RestaurantService()
+    var locationService: LocationService! = nil
     let authService = AuthenticationService()
     
     var rating: Int!
@@ -101,11 +101,13 @@ class DetailViewController: UIViewController {
     
     // MARK: - Methods
     func callRequest() {
+        
         let number = dialNumber(number: restaurant.phone)
         UIApplication.shared.open(number, options: [:], completionHandler: nil)
     }
     
     func dialNumber(number: String) -> URL {
+        
         let number = formatPhoneNumber(number: number)
         return URL(string: "telprompt://\(number))")!
     }

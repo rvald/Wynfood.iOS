@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class RestaurantsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, LocationServiceDelegate{
+class RestaurantsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, LocationServiceDelegate {
     
     // MARK: - Properties
     var restaurants: [Restaurant]!
@@ -20,12 +20,12 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
     let authService = AuthenticationService()
     var ratings: [Rating]!
     var ratingService = RatingService()
+    let userService = UserService()
     
 
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
         locationService.locationDelegate = self
 
@@ -66,8 +66,6 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
                 self.collectionView?.reloadData()
             }
         }
-        
-
     }
 
   
@@ -142,7 +140,6 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
         let detailViewController = DetailViewController()
         detailViewController.restaurant = restaurant
         detailViewController.locationService = locationService
-        detailViewController.resturantService = restaurantService
         
         if count == 0 {
             

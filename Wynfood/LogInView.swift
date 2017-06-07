@@ -16,6 +16,8 @@ class LogInView: UIView, UITextFieldDelegate {
     let authService = AuthenticationService()
     let dismissViewNotification = Notification.Name("WynfoodDismissViewNotification")
     let presentAlertNotification = Notification.Name("WynfoodPresentAlertNotification")
+    let networkingService = NetworkingService()
+    let userService = UserService()
     
     
     // MARK: - Intialization
@@ -139,6 +141,22 @@ class LogInView: UIView, UITextFieldDelegate {
                     
                 } else {
                     
+                    let email = self.emailField.text!.lowercased()
+                    
+                    self.networkingService.getUserByEmail(email: email) { (json) in
+                        
+                        self.userService.parseJsonData(jsonObject: json)
+                        
+                        DispatchQueue.main.async {
+                            
+                            let defaults = UserDefaults.standard
+                            let user = self.userService.user()
+                            
+                            defaults.set(user.userName, forKey: "UserName")
+                            defaults.set(user.email, forKey: "UserEmail")
+                        }
+                    }
+                   
                     NotificationCenter.default.post(name: self.dismissViewNotification, object: nil)
                 }
             }

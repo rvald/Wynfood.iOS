@@ -75,7 +75,7 @@ class ReviewsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         cell.createdLabel.text = endDate
         cell.textLabel.text = rating.text
         cell.rating = rating.value
-        cell.nameLabel.text = authService.getUserName()
+        cell.nameLabel.text = rating.userName
         
         cell.layer.cornerRadius = 5.0
         

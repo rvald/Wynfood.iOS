@@ -10,7 +10,7 @@ import Foundation
 
 struct User {
     
-    let id: Int
+    let email: String
     let userName: String
     let created: AnyObject?
     

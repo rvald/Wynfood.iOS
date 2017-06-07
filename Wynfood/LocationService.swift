@@ -16,7 +16,6 @@ let MILE = 0.000621371
     @objc optional func didUpdateCurrentLocation()
     @objc optional func locationServiceDidFailed(error: String)
     @objc optional func locationServiceRestricted(message: String)
-    
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate {
@@ -75,10 +74,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         })
     }
     
+    
     func createCoordinatesFromLocation(location: CLLocation) -> CLLocationCoordinate2D  {
         
        return CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
     }
+    
     
     func createPlacemMarkFromCoordinate(coordinate: CLLocationCoordinate2D) -> MKPlacemark {
         
@@ -96,6 +97,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         return numberFormatter.string(from: distanceInMiles as NSNumber)!
     }
+    
     
     func createDrivingRequest(source: MKMapItem , destination: MKMapItem, name: String) -> MKDirectionsRequest {
         
@@ -128,6 +130,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         if status == .authorizedWhenInUse || status == .authorizedAlways {
+            
             // get the users location
             manager.startUpdatingLocation()
         }
@@ -157,7 +160,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             
             locationDelegate?.didUpdateCurrentLocation!()
         }
-        
     }
     
     

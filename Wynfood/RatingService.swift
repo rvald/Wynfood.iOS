@@ -72,7 +72,7 @@ struct RatingService {
         
         var total = 0
         
-        var resRatings = ratingsForRestaurant(ratings: ratings, id: id)
+        let resRatings = ratingsForRestaurant(ratings: ratings, id: id)
         
         if resRatings.count == 0 {
             
