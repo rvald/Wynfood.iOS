@@ -20,7 +20,6 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
     let authService = AuthenticationService()
     var ratings: [Rating]!
     var ratingService = RatingService()
-    let userService = UserService()
     
 
     // MARK: - View Cycle

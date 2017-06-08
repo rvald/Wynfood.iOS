@@ -43,35 +43,7 @@ class NetworkingService {
             
         }).resume()
     }
-    
-    func getUserByEmail(email: String, completion: @escaping (Dictionary<String, AnyObject>) -> Void) {
-        
-        let defaultConfiguration = URLSessionConfiguration.default
-        let sessionWithOutDelegate = URLSession(configuration: defaultConfiguration)
-        let requestUrl = URL(string: "\(Request.users + email)")
-        
-        sessionWithOutDelegate.dataTask(with: requestUrl!, completionHandler: { (data, response, error) in
-            
-            if let error = error {
-                
-                print("Error: \(error.localizedDescription)")
-                
-                return
-                
-            } else {
-                
-                let jsonData = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? Dictionary<String, AnyObject>
-                
-                if let _jsonData = jsonData {
-                    
-                    completion(_jsonData)
-                }
-            }
-            
-        }).resume()
-        
-    }
-    
+
     
     func postRating(rating: Rating) {
     
@@ -114,57 +86,6 @@ class NetworkingService {
     
                     } catch {
     
-                        print(error.localizedDescription)
-                        return
-                    }
-                }
-            }
-        }
-        
-        task.resume()
-    }
-    
-    func postUser(user: User) {
-        
-        let parameters = ["email": user.email , "userName": user.userName] as [String : Any]
-        
-        let defaultConfiguration = URLSessionConfiguration.default
-        let sessionWithOutDelegate = URLSession(configuration: defaultConfiguration)
-        let url = URL(string: Request.users)
-        
-        var request = URLRequest(url: url!)
-        
-        request.httpMethod = "POST"
-        
-        do {
-            
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-            
-        } catch {
-            
-            print(error.localizedDescription)
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = sessionWithOutDelegate.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                
-                print(error.localizedDescription)
-                return
-                
-            } else {
-                
-                if let data = data {
-                    
-                    do {
-                        
-                        try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                        
-                    } catch {
-                        
                         print(error.localizedDescription)
                         return
                     }

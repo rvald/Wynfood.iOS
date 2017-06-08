@@ -21,14 +21,12 @@
 		E34CD3371EA6EA70002342A0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CD3361EA6EA70002342A0 /* Restaurant.swift */; };
 		E34CD33A1EA6ECCB002342A0 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CD3391EA6ECCB002342A0 /* RestaurantService.swift */; };
 		E35175A41EBA73C7005984CF /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = E35175A31EBA73C7005984CF /* restaurants.json */; };
-		E35940751EE7EF7A00D57F36 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35940741EE7EF7A00D57F36 /* UserService.swift */; };
 		E3BC9BA31ED4BC3200AA633B /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9BA21ED4BC3200AA633B /* NetworkingService.swift */; };
 		E3BC9BA51ED4C1AE00AA633B /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9BA41ED4C1AE00AA633B /* Rating.swift */; };
 		E3BC9BA71ED4FA9900AA633B /* RatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9BA61ED4FA9900AA633B /* RatingService.swift */; };
 		E3BC9BA91ED505A200AA633B /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BC9BA81ED505A200AA633B /* MessageView.swift */; };
 		E3C6F0821ED69E4C0067DF46 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C6F0811ED69E4C0067DF46 /* AuthenticationService.swift */; };
 		E3C6F0841ED6A5D80067DF46 /* RestaurantsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C6F0831ED6A5D80067DF46 /* RestaurantsCollectionViewController.swift */; };
-		E3CBE1421EE5A021006F5505 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBE1411EE5A021006F5505 /* User.swift */; };
 		E3CBF4C81EE21DE100D63854 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBF4C71EE21DE100D63854 /* LogInView.swift */; };
 		E3CBF4CA1EE21F5800D63854 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBF4C91EE21F5800D63854 /* RegisterView.swift */; };
 		E3CBF4CC1EE222E500D63854 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CBF4CB1EE222E500D63854 /* SignInViewController.swift */; };
@@ -59,14 +57,12 @@
 		E34CD3361EA6EA70002342A0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E34CD3391EA6ECCB002342A0 /* RestaurantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		E35175A31EBA73C7005984CF /* restaurants.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
-		E35940741EE7EF7A00D57F36 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E3BC9BA21ED4BC3200AA633B /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		E3BC9BA41ED4C1AE00AA633B /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		E3BC9BA61ED4FA9900AA633B /* RatingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingService.swift; sourceTree = "<group>"; };
 		E3BC9BA81ED505A200AA633B /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		E3C6F0811ED69E4C0067DF46 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		E3C6F0831ED6A5D80067DF46 /* RestaurantsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsCollectionViewController.swift; sourceTree = "<group>"; };
-		E3CBE1411EE5A021006F5505 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E3CBF4C71EE21DE100D63854 /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		E3CBF4C91EE21F5800D63854 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E3CBF4CB1EE222E500D63854 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +147,6 @@
 			children = (
 				E34CD3361EA6EA70002342A0 /* Restaurant.swift */,
 				E3BC9BA41ED4C1AE00AA633B /* Rating.swift */,
-				E3CBE1411EE5A021006F5505 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -184,7 +179,6 @@
 		E34CD3381EA6EC60002342A0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E35940741EE7EF7A00D57F36 /* UserService.swift */,
 				E30C35471EB7DC3F00046F49 /* Reachability.swift */,
 				E34CD3391EA6ECCB002342A0 /* RestaurantService.swift */,
 				E3D924FC1EB13E840094CD5F /* LocationService.swift */,
@@ -338,7 +332,6 @@
 				E3CBF4CC1EE222E500D63854 /* SignInViewController.swift in Sources */,
 				E33C26E91ECE05A300E616D0 /* ReviewCollectionViewCell.swift in Sources */,
 				E3BC9BA51ED4C1AE00AA633B /* Rating.swift in Sources */,
-				E3CBE1421EE5A021006F5505 /* User.swift in Sources */,
 				E30C35481EB7DC3F00046F49 /* Reachability.swift in Sources */,
 				E34CD3371EA6EA70002342A0 /* Restaurant.swift in Sources */,
 				E3C6F0821ED69E4C0067DF46 /* AuthenticationService.swift in Sources */,
@@ -355,7 +348,6 @@
 				E3F1712D1ECC367D00999D1D /* InfoPanel.swift in Sources */,
 				E3BC9BA31ED4BC3200AA633B /* NetworkingService.swift in Sources */,
 				E3DB01F31ECBEB2A0021D28B /* DetailViewController.swift in Sources */,
-				E35940751EE7EF7A00D57F36 /* UserService.swift in Sources */,
 				E3D924FD1EB13E840094CD5F /* LocationService.swift in Sources */,
 				E33C26EB1ECE3D8A00E616D0 /* ProfileViewController.swift in Sources */,
 				E30848B11EAEE8AA00D78E1F /* RestaurantCollectionViewCell.swift in Sources */,

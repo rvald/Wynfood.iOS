@@ -36,22 +36,7 @@ class RegisterView: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Views    
-    lazy var userNameField: UITextField = {
-        
-        let field = UITextField()
-        field.placeholder = "Username"
-        field.borderStyle = .none
-        field.backgroundColor = UIColor.white
-        field.layer.cornerRadius = 5.0
-        field.textAlignment = .center
-        field.delegate = self
-        field.translatesAutoresizingMaskIntoConstraints = false
-        
-        return field
-        
-    }()
-    
+    // MARK: - Views
     lazy var emailField: UITextField = {
         
         let field = UITextField()
@@ -118,19 +103,13 @@ class RegisterView: UIView, UITextFieldDelegate {
     func setupView() {
         
         addSubview(emailField)
-        addSubview(userNameField)
         addSubview(passwordField)
         addSubview(passwordField1)
         addSubview(registerButton)
         
         
-        // name field constraints
-        addConstraint(NSLayoutConstraint(item: userNameField, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 1.0))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": userNameField]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": userNameField]))
-        
         // email field constraints
-        addConstraint(NSLayoutConstraint(item: emailField, attribute: .top, relatedBy: .equal, toItem: userNameField, attribute: .bottom, multiplier: 1.0, constant: 12.0))
+        addConstraint(NSLayoutConstraint(item: emailField, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 1.0))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": emailField]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": emailField]))
         
@@ -164,14 +143,13 @@ class RegisterView: UIView, UITextFieldDelegate {
         
         var valid = true
         
-        if (userNameField.text?.isEmpty)! || !validateEmail(candidate: emailField.text!) || !validatePassword(candidate: passwordField.text!) || !validatePassword(candidate: passwordField1.text!) {
+        if !validateEmail(candidate: emailField.text!) || !validatePassword(candidate: passwordField.text!) || !validatePassword(candidate: passwordField1.text!) {
             
             valid = false
             
             let infoMessage: [String: String]  = ["message": "Please enter valid username, email or password."]
             NotificationCenter.default.post(name: presentAlertNotification, object: nil, userInfo: infoMessage)
             
-            userNameField.text = ""
             emailField.text = ""
             passwordField.text = ""
             passwordField1.text = ""
@@ -195,8 +173,8 @@ class RegisterView: UIView, UITextFieldDelegate {
         
         if sender.state == .ended {
             
-            if userNameField.isFirstResponder || emailField.isFirstResponder || passwordField.isFirstResponder || passwordField1.isFirstResponder  {
-                userNameField.resignFirstResponder()
+            if emailField.isFirstResponder || passwordField.isFirstResponder || passwordField1.isFirstResponder  {
+               
                 emailField.resignFirstResponder()
                 passwordField.resignFirstResponder()
                 passwordField1.resignFirstResponder()
@@ -229,13 +207,11 @@ class RegisterView: UIView, UITextFieldDelegate {
                     
                     guard let email = self.authService.getUserEmail() else { return }
                     
-                    let user = User(email: email, userName: self.userNameField.text!, created: nil)
+                    let userName = self.authService.userNameFromEmail(email: email)
                     
                     let defaults = UserDefaults.standard
-                    defaults.set(user.email, forKey: "UserEmail")
-                    defaults.set(user.userName, forKey: "UserName")
-                    
-                    self.networkingService.postUser(user: user)
+                    defaults.set(email, forKey: "UserEmail")
+                    defaults.set(userName, forKey: "UserName")
                     
                     NotificationCenter.default.post(name: self.dismissViewNotification, object: nil)
                     

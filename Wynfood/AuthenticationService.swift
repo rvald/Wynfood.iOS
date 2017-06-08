@@ -66,7 +66,25 @@ struct AuthenticationService {
     func isPasswordConfirmend(password: String, passwordConfirm: String) -> Bool {
         return password == passwordConfirm
     }
- 
+    
+    func userNameFromEmail(email: String) -> String {
+        
+        var userName = ""
+        
+        for c in email.characters {
+            
+            if c != "@" {
+                
+                userName.append(c)
+                
+            } else {
+                
+                break
+            }
+        }
+        
+        return userName
+    }
     
 
 

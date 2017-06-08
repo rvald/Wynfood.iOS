@@ -52,7 +52,7 @@ struct RatingService {
         return resRatings
     }
     
-    func ratingsForUser(ratings: [Rating], userName: String) -> [Rating] {
+    func ratingsForUser(userName: String) -> [Rating] {
         
         var resRatings = [Rating]()
         

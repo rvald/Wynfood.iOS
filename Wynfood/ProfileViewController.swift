@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController {
         networkingService.getRatings { (json) in
             
             self.ratingService.parseJsonData(jsonObject: json)
-            self.reviewView.ratings = self.ratingService.allRatings()
+            self.reviewView.ratings = self.ratingService.ratingsForUser(userName: self.authService.getUserName())
             
             DispatchQueue.main.async {
                 self.reviewView.reviewsCollectionView.reloadData()
