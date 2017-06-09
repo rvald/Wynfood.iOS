@@ -13,7 +13,6 @@ class NetworkingService {
     // constants
     enum Request {
         static let ratings = "https://boiling-falls-56738.herokuapp.com/api/ratings/"
-        static let users = "https://boiling-falls-56738.herokuapp.com/api/users/"
     }
     
     // MARK: - Methods
