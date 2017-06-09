@@ -98,6 +98,19 @@ class RegisterView: UIView, UITextFieldDelegate {
         
     }()
     
+    let passwordInfoLabel: UILabel = {
+        
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.text = "Password must be at least 6 characters long, and include a capital letter and a number."
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 255.0/255.0, green: 59.0/255.0, blue: 48.0/255.0, alpha: 1.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+        
+    }()
+    
     
     // MARK: - Methods
     func setupView() {
@@ -106,6 +119,7 @@ class RegisterView: UIView, UITextFieldDelegate {
         addSubview(passwordField)
         addSubview(passwordField1)
         addSubview(registerButton)
+        addSubview(passwordInfoLabel)
         
         
         // email field constraints
@@ -122,8 +136,13 @@ class RegisterView: UIView, UITextFieldDelegate {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": passwordField1]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": passwordField1]))
         
+        // password info constraints
+        addConstraint(NSLayoutConstraint(item: passwordInfoLabel, attribute: .top, relatedBy: .equal, toItem: passwordField1, attribute: .bottom, multiplier: 1.0, constant: 8.0))
+        addConstraint(NSLayoutConstraint(item: passwordInfoLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 1.0))
+        addConstraint(NSLayoutConstraint(item: passwordInfoLabel, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 1.0))
+        
         // register button constraints
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .top, relatedBy: .equal, toItem: passwordField1, attribute: .bottom, multiplier: 1.0, constant: 13.0))
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .top, relatedBy: .equal, toItem: passwordInfoLabel, attribute: .bottom, multiplier: 1.0, constant: 24.0))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": registerButton]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": registerButton]))
         
@@ -135,7 +154,7 @@ class RegisterView: UIView, UITextFieldDelegate {
     }
     
     func validatePassword(candidate: String) -> Bool {
-        let passwordRegex = "^(?=.{8,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$"
+        let passwordRegex = "^(?=.{6,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: candidate)
     }
     
@@ -147,7 +166,7 @@ class RegisterView: UIView, UITextFieldDelegate {
             
             valid = false
             
-            let infoMessage: [String: String]  = ["message": "Please enter valid username, email or password."]
+            let infoMessage: [String: String]  = ["message": "Please enter Email or Password."]
             NotificationCenter.default.post(name: presentAlertNotification, object: nil, userInfo: infoMessage)
             
             emailField.text = ""
@@ -160,7 +179,7 @@ class RegisterView: UIView, UITextFieldDelegate {
             
             valid = false
             
-            let info: [String: String]  = ["message": "Please password and password confirm do not match."]
+            let info: [String: String]  = ["message": "Password and password confirm do not match."]
             NotificationCenter.default.post(name: presentAlertNotification, object: nil, userInfo: info)
             
             registerButton.setTitle("Register", for: .normal)
@@ -207,7 +226,7 @@ class RegisterView: UIView, UITextFieldDelegate {
                     
                     guard let email = self.authService.getUserEmail() else { return }
                     
-                    let userName = self.authService.userNameFromEmail(email: email)
+                    let userName = self.authService.userNameFromEmail(email: email.lowercased())
                     
                     let defaults = UserDefaults.standard
                     defaults.set(email, forKey: "UserEmail")

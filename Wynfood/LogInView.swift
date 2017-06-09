@@ -129,7 +129,8 @@ class LogInView: UIView, UITextFieldDelegate {
                 
                 if error != nil {
                     
-                    print(error?.localizedDescription as Any)
+                    let info: [String: String]  = ["message": (error?.localizedDescription)!]
+                    NotificationCenter.default.post(name: self.presentAlertNotification, object: nil, userInfo: info)
                     
                     self.emailField.text = ""
                     self.passwordField.text = ""
@@ -139,7 +140,7 @@ class LogInView: UIView, UITextFieldDelegate {
                     
                 } else {
                     
-                    let email = self.emailField.text!
+                    let email = self.emailField.text!.lowercased()
                     
                     let userName = self.authService.userNameFromEmail(email: email)
                     
@@ -154,7 +155,7 @@ class LogInView: UIView, UITextFieldDelegate {
             
         } else {
             
-            let info: [String: String]  = ["message": "Invalid email or password"]
+            let info: [String: String]  = ["message": "Invalid Email or Password"]
             NotificationCenter.default.post(name: presentAlertNotification, object: nil, userInfo: info)
             self.logInButton.setTitle("Log In", for: .normal)
         }

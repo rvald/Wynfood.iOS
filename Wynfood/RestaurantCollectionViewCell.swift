@@ -30,7 +30,7 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
         label.text = "Morgans Restaurant"
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.numberOfLines = 0
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -73,7 +73,7 @@ class RestaurantCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "5 Reviews"
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label

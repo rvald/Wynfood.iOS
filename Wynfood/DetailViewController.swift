@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     var resturantService = RestaurantService()
     var locationService: LocationService! = nil
     let authService = AuthenticationService()
+    let networkingService = NetworkingService()
+    var ratingService = RatingService()
     
     var rating: Int!
     var reviews: [Rating]!
@@ -55,6 +57,15 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        networkingService.getRatings { (json) in
+            self.ratingService.parseJsonData(jsonObject: json)
+            self.reviewsView.ratings = self.ratingService.ratingsForRestaurant(ratings: self.ratingService.allRatings(), id: self.restaurant.id)
+            
+            DispatchQueue.main.async {
+                self.reviewsView.reviewsCollectionView.reloadData()
+            }
+        }
         
         infoPanel.nameLabel.text = restaurant?.name
         infoPanel.addressLabel.text = restaurant?.address

@@ -55,6 +55,7 @@ class CreateReviewViewController: UIViewController, UITextViewDelegate{
         let label = UILabel()
         label.text = "Wynwood Bar"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -108,8 +109,6 @@ class CreateReviewViewController: UIViewController, UITextViewDelegate{
             present(alertController, animated: true, completion: nil)
         
         } else {
-            
-            
             
             let rating = Rating(userName: authService.getUserName(), restaurantId: restaurantId, text: textView.text, value: self.rating, created: nil)
             
