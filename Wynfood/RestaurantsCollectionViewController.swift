@@ -89,8 +89,8 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
         cell.cuisineLabel.text = restaurant.cuisine
         
         if ratings == nil {
-            cell.reviewLabel.text = ""
             
+            cell.reviewLabel.text = ""
             
         } else {
     

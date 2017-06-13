@@ -50,14 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillResignActive(_ application: UIApplication) {
         
-        authService.logOut()
-        
         restaurantService.deleteCache()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
-        authService.logOut()
       
         restaurantService.deleteCache()
     }
@@ -72,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        authService.logOut()
         
     }
 

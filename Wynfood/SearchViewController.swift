@@ -182,10 +182,12 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         let total = ratingService.ratingValue(ratings: ratings, id: restaurant.id)
         
         if count == 0 {
+            
             detailViewController.rating = 0
             
         } else {
-            detailViewController.rating = count / total
+            
+            detailViewController.rating =  total / count
         }
         
         detailViewController.reviews = ratingService.ratingsForRestaurant(ratings: ratings, id: restaurant.id)
