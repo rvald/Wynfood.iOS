@@ -211,8 +211,8 @@ class RestaurantsCollectionViewController: UICollectionViewController, UICollect
     }
     
     func searchButtonTapped() {
-        navigationController?.pushViewController(SearchViewController(), animated: true)
         
+        navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 
 }

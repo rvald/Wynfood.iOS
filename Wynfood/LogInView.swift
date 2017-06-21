@@ -115,7 +115,6 @@ class LogInView: UIView, UITextFieldDelegate {
         }
     }
     
-    
     // MARK: - Actions
     func logInButtonTap(sender: UIButton, forEvent event: UIEvent) {
         

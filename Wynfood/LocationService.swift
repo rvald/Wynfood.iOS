@@ -161,8 +161,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             locationDelegate?.didUpdateCurrentLocation!()
         }
     }
-    
-    
 }
 
 

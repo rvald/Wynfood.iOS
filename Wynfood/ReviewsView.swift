@@ -17,7 +17,6 @@ class ReviewsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     let authService = AuthenticationService()
     
-
     // MARK: - View Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)

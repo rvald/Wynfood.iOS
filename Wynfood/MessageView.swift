@@ -10,8 +10,6 @@ import UIKit
 
 class MessageView: UIView {
 
-    // MARK: - Properties
-    
     
     // MARK: - View Cycle
     override init(frame: CGRect) {

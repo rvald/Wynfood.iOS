@@ -14,15 +14,18 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - Properties
     var searchResults = [Restaurant]()
+    
     var locationService = LocationService()
     var restaurantService = RestaurantService()
     var ratingService = RatingService()
     var networkingService = NetworkingService()
+    
     var ratings: [Rating]! {
         didSet {
             restaurantsCollectionView.reloadData()
         }
     }
+    
     var restaurants: [Restaurant] {
         return list()
     }

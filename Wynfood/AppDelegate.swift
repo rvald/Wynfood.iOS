@@ -35,14 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         restaurantsCollectionVC.locationService = locationService
         restaurantsCollectionVC.restaurantService = restaurantService
         
-        
         locationService.restaurantService = restaurantService
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
      
-        
         restaurantService.deleteCache()
         
         return true

@@ -204,7 +204,6 @@ class DetailViewController: UIViewController {
             view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v1]-7-[v0]-13-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": reviewsView, "v1": sectionLabel]))
         }
         
-        
         // info panel view constraints
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": infoPanel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-24-[v0]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": infoPanel]))
@@ -221,6 +220,4 @@ class DetailViewController: UIViewController {
         
     }
     
-    
-
 }

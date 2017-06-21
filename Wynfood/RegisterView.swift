@@ -111,7 +111,6 @@ class RegisterView: UIView, UITextFieldDelegate {
         
     }()
     
-    
     // MARK: - Methods
     func setupView() {
         
