@@ -3,14 +3,14 @@ Find local restaurants in Wynwood.
 
 ## Technology
 
-* Swift 3.0 
+* Swift 3.1
 * Xcode 8.3.3 
-* iOS 10
+* iOS 10.3
 * Firebase
 
 ## Requirements
 
-* Swift 3.0 
+* Swift 3.1 
 * Xcode 8.3.3 
 * Cocoapods
 
